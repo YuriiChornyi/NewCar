@@ -1,7 +1,7 @@
 ﻿namespace DAL
 {
     using System.ComponentModel.DataAnnotations;
-    class Engine
+    public class Engine
     {
         [Key] public int ID { get; set; }
         [Required] public float Value { get; set; }

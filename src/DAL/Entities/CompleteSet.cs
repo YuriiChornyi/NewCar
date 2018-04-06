@@ -1,7 +1,7 @@
 ﻿namespace DAL
 {
     using System.ComponentModel.DataAnnotations;
-    class CompleteSet
+    public class CompleteSet
     {
         [Required] public int ID { get; set; }
         [Required] public string Description { get; set; }

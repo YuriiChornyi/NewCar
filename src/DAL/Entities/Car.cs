@@ -2,7 +2,7 @@
 {
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-    class Car
+    public class Car
     {
         [Key] public int ID { get; set; }
         [Required] public string ModelName { get; set; }

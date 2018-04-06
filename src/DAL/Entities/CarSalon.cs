@@ -2,7 +2,7 @@
 {
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-    class CarSalon
+    public class CarSalon
     {
         [Key]
         public int ID { get; set; }
@@ -12,7 +12,7 @@
         [Required]
         [MinLength(8)]
         [MaxLength(15)]
-        public string PhoneNumber{ get; set; }
+        public string PhoneNumber { get; set; }
         [Required]
         [EmailAddress]
         public string Email { get; set; }

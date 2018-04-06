@@ -1,7 +1,7 @@
 ﻿namespace DAL
 {
     using System.ComponentModel.DataAnnotations;
-    class Transmition
+    public class Transmition
     {
         [Key] public int ID { get; set; }
         [Required] public int GearBoxID { get; set; }
