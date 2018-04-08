@@ -1,4 +1,6 @@
-﻿namespace DAL
+﻿using System;
+
+namespace DAL
 {
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
@@ -7,6 +9,7 @@
         [Key] public int ID { get; set; }
         [Required] public string ModelName { get; set; }
         [Required] public string ManufacturerName { get; set; }
+        [Required] [DataType(DataType.Date)] public DateTime ProductionTime { get; set; }
         [Required] public int BodyID { get; set; }
 
         public virtual Body Body { get; set; }

@@ -19,6 +19,8 @@
 
         public string Site { get; set; }
 
+        public string City { get; set; }
+
         public virtual ICollection<Car> CarCollection { get; set; }
 
     }
