@@ -33,7 +33,7 @@ namespace DAL
 
         public string CarClass { get; set; }
 
-        public virtual ICollection<string> Photos { get; set; }
+        public virtual ICollection<Photo> Photo { get; set; }
 
     }
 }

@@ -3,6 +3,10 @@
     using Microsoft.EntityFrameworkCore;
     public class DbContext : Microsoft.EntityFrameworkCore.DbContext
     {
+        public DbContext(DbContextOptions<DbContext> options)
+            : base(options)
+        { }
+
         public DbSet<Body> Bodies { get; set; }
         public DbSet<Car> Cars { get; set; }
         public DbSet<CarSalon> CarSalons { get; set; }
