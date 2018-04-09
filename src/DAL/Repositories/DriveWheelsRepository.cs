@@ -2,7 +2,8 @@
 {
     using System.Collections.Generic;
     using System.Linq;
-    class DriveWheelsRepository : GenericRepository<DriveWheels>, IDriveWheelsRepository
+
+    public class DriveWheelsRepository : GenericRepository<DriveWheels>, IDriveWheelsRepository
     {
         private readonly DbContext _db;
         public DriveWheelsRepository(DbContext context) : base(context)

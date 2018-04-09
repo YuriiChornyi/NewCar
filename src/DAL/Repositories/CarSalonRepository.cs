@@ -3,7 +3,7 @@
     using System.Collections.Generic;
     using System.Linq;
 
-    class CarSalonRepository : GenericRepository<CarSalon>, ICarSalonRepository
+    public class CarSalonRepository : GenericRepository<CarSalon>, ICarSalonRepository
     {
         private readonly DbContext _db;
         public CarSalonRepository(DbContext context) : base(context)
