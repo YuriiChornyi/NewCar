@@ -1,9 +1,15 @@
 ﻿namespace DAL
 {
+    using Microsoft.EntityFrameworkCore;
     using System;
     public class UnitOfWork : IDisposable
     {
-        private DbContext _db = new DAL.DbContext();
+        private DbContext _db;
+
+        public UnitOfWork(DbContext context)
+        {
+            _db = context;
+        }
         private BodyRepository _bodyRepository;
         private CarRepository _carRepository;
         private CarSalonRepository _carSalonRepository;

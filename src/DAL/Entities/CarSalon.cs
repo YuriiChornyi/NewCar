@@ -11,7 +11,7 @@
         public string Name { get; set; }
         [Required]
         [MinLength(8)]
-        [MaxLength(15)]
+        [MaxLength(45)]
         public string PhoneNumber { get; set; }
         [Required]
         [EmailAddress]

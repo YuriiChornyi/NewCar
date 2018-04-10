@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Microsoft.EntityFrameworkCore;
 
 namespace DAL
 {
@@ -41,6 +42,14 @@ namespace DAL
         public IEnumerable<T> GetAll()
         {
             return _db.Set<T>();
+        }
+
+        public T Update(T entity)
+        {
+            _db.Set<T>().Attach(entity);
+            var entry = _db.Entry(entity);
+            entry.State = EntityState.Modified;
+            return entity;
         }
     }
 }
