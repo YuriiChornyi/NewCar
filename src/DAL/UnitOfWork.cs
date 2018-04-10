@@ -2,9 +2,11 @@
 {
     using Microsoft.EntityFrameworkCore;
     using System;
+#pragma warning disable S3881 // "IDisposable" should be implemented correctly
     public class UnitOfWork : IDisposable
+#pragma warning restore S3881 // "IDisposable" should be implemented correctly
     {
-        private DbContext _db;
+        private readonly DbContext _db;
 
         public UnitOfWork(DbContext context)
         {

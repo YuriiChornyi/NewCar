@@ -29,7 +29,7 @@ namespace WebAPI.Controllers
 
         // GET: api/Cars/5
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetCar([FromRoute] int id)
+        public IActionResult GetCar([FromRoute] int id)
         {
             if (!ModelState.IsValid)
             {
@@ -48,7 +48,7 @@ namespace WebAPI.Controllers
 
         // PUT: api/Cars/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutCar([FromRoute] int id, [FromBody] Car car)
+        public IActionResult PutCar([FromRoute] int id, [FromBody] Car car)
         {
             if (!ModelState.IsValid)
             {
@@ -83,7 +83,7 @@ namespace WebAPI.Controllers
 
         // POST: api/Cars
         [HttpPost]
-        public async Task<IActionResult> PostCar([FromBody] Car car)
+        public IActionResult PostCar([FromBody] Car car)
         {
             if (!ModelState.IsValid)
             {
@@ -98,7 +98,7 @@ namespace WebAPI.Controllers
 
         // DELETE: api/Cars/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteCar([FromRoute] int id)
+        public IActionResult DeleteCar([FromRoute] int id)
         {
             if (!ModelState.IsValid)
             {
