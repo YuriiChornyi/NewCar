@@ -44,12 +44,9 @@ namespace DAL
             return _db.Set<T>();
         }
 
-        public T Update(T entity)
+        public void Update(T entity)
         {
-            _db.Set<T>().Attach(entity);
-            var entry = _db.Entry(entity);
-            entry.State = EntityState.Modified;
-            return entity;
+            _db.Entry(entity).State = EntityState.Modified;
         }
     }
 }

@@ -20,5 +20,6 @@
         public DbSet<Engine> Engines { get; set; }
         public DbSet<GearBox> GearBoxes { get; set; }
         public DbSet<Transmition> Transmitions { get; set; }
+        public DbSet<Photo> Photos { get; set; }
     }
 }
