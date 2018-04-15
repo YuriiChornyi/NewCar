@@ -15,8 +15,7 @@ namespace DAL
 
         public IEnumerable<Car> GetAllCars()
         {
-            return _db.Set<Car>().Include("Body")
-                .ToList(); //.Include(x=> x.Color).Include(x=> x.Transmition).Include(x=>x.CompleteSet).Include(x=> x.CarPhotos).ToList(); 
+            return _db.Set<Car>().ToList(); //.Include(x=> x.Color).Include(x=> x.Transmition).Include(x=>x.CompleteSet).Include(x=> x.CarPhotos).ToList(); 
         }
 
         public IEnumerable<Car> GetByCarSalonId(int id)

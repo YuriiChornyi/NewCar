@@ -15,18 +15,18 @@ namespace DAL
 
             // Look for any students.
 
-            //SeedBody();
-            //SeedCarSalon();
-            //SeedColorType();
-            //SeedColors();
-            //SeedDriveWheels();
-            //SeedGearBoxes();
-            //SeedTransmition();
-            //SeedEngines();
-            //SeedCompleateSets();
-            //SeedCars();
-            //SeedPhotos();
-            //SeedCarPhoto();
+            SeedBody();
+            SeedCarSalon();
+            SeedColorType();
+            SeedColors();
+            SeedDriveWheels();
+            SeedGearBoxes();
+            SeedTransmition();
+            SeedEngines();
+            SeedCompleateSets();
+            SeedCars();
+            SeedPhotos();
+            SeedCarPhoto();
 
 
 

@@ -13,6 +13,6 @@ namespace DAL
         public virtual ICollection<Car> Cars { get; set; }
         [Required] public int PhotoId { get; set; }
         [Required]
-        public Photo Photo { get; set; }
+        public virtual ICollection<Photo> Photos { get; set; }
     }
 }

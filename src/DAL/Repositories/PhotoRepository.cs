@@ -16,15 +16,7 @@ namespace DAL
 
         public IEnumerable<string> GetPhotosByCarId(int carId)
         {
-        //   var photos= _db.CarPhotos.Where(x => x.CarId == carId);//.Include(x => x.Photos);
-        //    var res1=photos.Include(X => X.Photos);
-        //    foreach (var item in res1)
-        //    {
-                
-        //    }
-            var photos = _db.CarPhotos.Where(x => x.CarId == carId).Select(y => y.Photo.PhotoURL);
-        return photos;
-            //return _db.CarPhotos.Where(x => x.CarId == carId).Select(x=>x.Photos);
+            return _db.Photos.Where(x => x.CarId == carId).Select(x => x.PhotoURL);
         }
     }
 }
