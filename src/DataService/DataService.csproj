@@ -5,7 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DAL\DAL.csproj" />
+    <ProjectReference Include="..\DALF\DALF.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>
