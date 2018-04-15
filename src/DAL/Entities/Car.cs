@@ -1,4 +1,6 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace DAL
 {
@@ -6,34 +8,33 @@ namespace DAL
     using System.ComponentModel.DataAnnotations;
     public class Car
     {
-        [Key] public int ID { get; set; }
+        [Key] public int CarId { get; set; }
         [Required] public string ModelName { get; set; }
         [Required] public string ManufacturerName { get; set; }
         [Required] [DataType(DataType.Date)] public DateTime ProductionTime { get; set; }
-        [Required] public int BodyID { get; set; }
-
-        public virtual Body Body { get; set; }
-        [Required] public int ColorID { get; set; }
-        public virtual Color Color { get; set; }
-
-        [Required] public int CompleteSetID { get; set; }
-
-        public virtual CompleteSet CompleteSet { get; set; }
+        [ForeignKey("Body")]
+        public int BodyId { get; set; }
+        public Body Body { get; set; }
+        [ForeignKey("Color")]
+        public int ColorId { get; set; }
+        public Color Color { get; set; }
+        [ForeignKey("CompleteSet")]
+        public int CompleteSetId { get; set; }
+        public CompleteSet CompleteSet { get; set; }
         [Required]
         [DataType(DataType.Currency)]
         public float Price { get; set; }
-
-        [Required] public int TransmitionID { get; set; }
+        [ForeignKey("Transmition")]
+        public int TransmitionId { get; set; }
         public Transmition Transmition { get; set; }
-
-        [Required] public int EngineID { get; set; }
-        public virtual Engine Engine { get; set; }
-        [Required] public int CarSalonID { get; set; }
-        public virtual CarSalon CarSalon { get; set; }
-
+        [ForeignKey("Engine")]
+        public int EngineId { get; set; }
+        public Engine Engine { get; set; }
+        [ForeignKey("CarSalon")]
+        public int CarSalonId { get; set; }
+        public CarSalon CarSalon { get; set; }
         public string CarClass { get; set; }
 
-        public virtual ICollection<Photo> Photo { get; set; }
-
+        public CarPhoto CarPhoto { get; set; }
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace DAL
+﻿using Microsoft.EntityFrameworkCore;
+
+namespace DAL
 {
     using System;
     using System.Collections.Generic;
@@ -11,10 +13,16 @@
             _db = context;
         }
 
+        public IEnumerable<Car> GetAllCars()
+        {
+            return _db.Set<Car>().Include("Body")
+                .ToList(); //.Include(x=> x.Color).Include(x=> x.Transmition).Include(x=>x.CompleteSet).Include(x=> x.CarPhotos).ToList(); 
+        }
+
         public IEnumerable<Car> GetByCarSalonId(int id)
         {
             return from salon in _db.Set<Car>()
-                   where salon.CarSalonID == id
+                   where salon.CarSalonId == id
                    select new Car();
         }
 

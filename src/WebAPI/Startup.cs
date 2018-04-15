@@ -27,6 +27,7 @@ namespace WebAPI
         {
             string connection = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<DAL.DbContext>(options => options.UseSqlServer(connection));
+            //services.AddEntityFrameworkProxies();
             services.AddMvc();
         }
 

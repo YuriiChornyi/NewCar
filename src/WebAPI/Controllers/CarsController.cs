@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using DAL;
+using DataService;
 
 namespace WebAPI.Controllers
 {
@@ -14,17 +15,20 @@ namespace WebAPI.Controllers
     public class CarsController : Controller
     {
         private readonly DAL.UnitOfWork _unitOfWork;
+        private readonly CarsService _carsService;
 
         public CarsController(DAL.DbContext context)
         {
+            _carsService = new CarsService(context);
             _unitOfWork = new UnitOfWork(context);
         }
 
         // GET: api/Cars
         [HttpGet]
-        public IEnumerable<Car> GetCars()
+        public IEnumerable<CarDto> GetCars()
         {
-            return _unitOfWork.Cars.GetAll();
+            _unitOfWork.Cars.GetAllCars();
+            return _carsService.GetAllCars();
         }
 
         // GET: api/Cars/5
@@ -55,7 +59,7 @@ namespace WebAPI.Controllers
                 return BadRequest(ModelState);
             }
 
-            if (id != car.ID)
+            if (id != car.CarId)
             {
                 return BadRequest();
             }
@@ -93,7 +97,7 @@ namespace WebAPI.Controllers
             _unitOfWork.Cars.Add(car);
             _unitOfWork.Commit();
 
-            return CreatedAtAction("GetCar", new { id = car.ID }, car);
+            return CreatedAtAction("GetCar", new { id = car.CarId }, car);
         }
 
         // DELETE: api/Cars/5

@@ -5,7 +5,7 @@
     public class CarSalon
     {
         [Key]
-        public int ID { get; set; }
+        public int CarSalonId { get; set; }
         [Required]
         [MaxLength(60)]
         public string Name { get; set; }
@@ -21,7 +21,7 @@
 
         public string City { get; set; }
 
-        public virtual ICollection<Car> CarCollection { get; set; }
+        public ICollection<Car> Cars { get; set; }
 
     }
 }

@@ -15,17 +15,18 @@ namespace DAL
 
             // Look for any students.
 
-            SeedBody();
-            SeedCarSalon();
-            SeedColorType();
-            SeedColors();
-            SeedDriveWheels();
-            SeedGearBoxes();
-            SeedTransmition();
-            SeedEngines();
-            SeedCompleateSets();
-            SeedCars();
-            SeedPhotos();
+            //SeedBody();
+            //SeedCarSalon();
+            //SeedColorType();
+            //SeedColors();
+            //SeedDriveWheels();
+            //SeedGearBoxes();
+            //SeedTransmition();
+            //SeedEngines();
+            //SeedCompleateSets();
+            //SeedCars();
+            //SeedPhotos();
+            //SeedCarPhoto();
 
 
 
@@ -46,7 +47,9 @@ namespace DAL
 
                 foreach (Body s in bodies)
                 {
-                    _context.Bodies.Add(s);
+                    _context.Entry(s);
+                    //_context.SaveChanges();
+                    //_context.Body.Add(s);
                 }
                 _context.SaveChanges();
             }
@@ -64,7 +67,8 @@ namespace DAL
 
                 foreach (CarSalon s in carSalons)
                 {
-                    _context.CarSalons.Add(s);
+                    _context.Entry(s);
+                    //_context.CarSalon.Add(s);
                 }
                 _context.SaveChanges();
             }
@@ -85,7 +89,8 @@ namespace DAL
 
                 foreach (ColorType s in colorType)
                 {
-                    _context.ColorTypes.Add(s);
+                    _context.Entry(s);
+                    //_context.ColorType.Add(s);
                 }
                 _context.SaveChanges();
             }
@@ -97,16 +102,17 @@ namespace DAL
             {
                 var color = new Color[]
                 {
-                    new Color{ColorCode = "#FF3333",ColorTypeID = 1},
-                    new Color{ColorCode = "#990033",ColorTypeID = 2},
-                    new Color{ColorCode = "#0033CC",ColorTypeID = 2},
-                    new Color{ColorCode = "#330000",ColorTypeID = 3},
-                    new Color{ColorCode = "#666666",ColorTypeID = 4}
+                    new Color{ColorCode = "#FF3333",ColorTypeId = 1},
+                    new Color{ColorCode = "#990033",ColorTypeId= 2},
+                    new Color{ColorCode = "#0033CC",ColorTypeId = 2},
+                    new Color{ColorCode = "#330000",ColorTypeId = 3},
+                    new Color{ColorCode = "#666666",ColorTypeId = 4}
                 };
 
                 foreach (Color s in color)
                 {
-                    _context.Colors.Add(s);
+                    _context.Entry(s);
+                    // _context.Color.Add(s);
                 }
                 _context.SaveChanges();
             }
@@ -125,7 +131,8 @@ namespace DAL
 
                 foreach (DriveWheels s in driveWheels)
                 {
-                    _context.DriveWheelses.Add(s);
+                    _context.Entry(s);
+                    //_context.DriveWheels.Add(s);
                 }
                 _context.SaveChanges();
             }
@@ -133,7 +140,7 @@ namespace DAL
         }
         private static void SeedGearBoxes()
         {
-            if (!_context.GearBoxes.Any())
+            if (!_context.GearBoxs.Any())
             {
                 var gearBoxes = new[]
                 {
@@ -144,7 +151,8 @@ namespace DAL
 
                 foreach (GearBox s in gearBoxes)
                 {
-                    _context.GearBoxes.Add(s);
+                    _context.Entry(s);
+                    //_context.GearBox.Add(s);
                 }
                 _context.SaveChanges();
             }
@@ -156,14 +164,15 @@ namespace DAL
             {
                 var transmitions = new Transmition[]
                 {
-                    new Transmition{DriveWheelsID = 1,GearBoxID = 2},
-                    new Transmition{DriveWheelsID = 2,GearBoxID = 2},
-                    new Transmition{DriveWheelsID = 3,GearBoxID = 1}
+                    new Transmition{DriveWheelsId = 1,GearBoxID = 2},
+                    new Transmition{DriveWheelsId = 2,GearBoxID = 2},
+                    new Transmition{DriveWheelsId = 3,GearBoxID = 1}
                 };
 
                 foreach (Transmition s in transmitions)
                 {
-                    _context.Transmitions.Add(s);
+                    _context.Entry(s);
+                    //_context.Transmition.Add(s);
                 }
                 _context.SaveChanges();
             }
@@ -182,7 +191,8 @@ namespace DAL
 
                 foreach (Engine s in engines)
                 {
-                    _context.Engines.Add(s);
+                    _context.Entry(s);
+                    //_context.Engine.Add(s);
                 }
                 _context.SaveChanges();
             }
@@ -200,7 +210,8 @@ namespace DAL
 
                 foreach (CompleteSet s in compleateSet)
                 {
-                    _context.CompleteSets.Add(s);
+                    _context.Entry(s);
+                    //_context.CompleteSet.Add(s);
                 }
                 _context.SaveChanges();
             }
@@ -212,13 +223,14 @@ namespace DAL
             {
                 var cars = new Car[]
                 {
-                    new Car{CarSalonID = 1,BodyID = 4,EngineID = 1,ManufacturerName = "Porsche",ModelName = "911 Carrera 4S",ProductionTime = new  DateTime(2016,8,10),CompleteSetID = 1,ColorID = 3,TransmitionID = 1,Price = 5600186f},
-                    new Car{CarSalonID = 2,BodyID = 5,EngineID = 2,ManufacturerName = "Mercedes-Benz",ModelName = "S-Calss W220",ProductionTime = new  DateTime(2018,1,1),CompleteSetID = 2,ColorID = 3,TransmitionID = 2,Price = 4888950f}
+                    new Car{CarSalonId = 1,BodyId= 4,EngineId = 1,ManufacturerName = "Porsche",ModelName = "911 Carrera 4S",ProductionTime = new  DateTime(2016,8,10),CompleteSetId = 1,ColorId = 3,TransmitionId = 1,Price = 5600186f,CarClass="Sport Gt"},
+                    new Car{CarSalonId = 2,BodyId = 5,EngineId = 2,ManufacturerName = "Mercedes-Benz",ModelName = "S-Calss W220",ProductionTime = new  DateTime(2018,1,1),CompleteSetId = 2,ColorId = 3,TransmitionId = 2,Price = 4888950f,CarClass = "Premium"}
                 };
 
                 foreach (Car s in cars)
                 {
-                    _context.Cars.Add(s);
+                    _context.Entry(s);
+                    //_context.Car.Add(s);
                 }
                 _context.SaveChanges();
             }
@@ -230,22 +242,46 @@ namespace DAL
             {
                 var photos = new Photo[]
                 {
-                    new Photo{CarID = 1,PhotoURL = "http://lviv.porsche.ua/images/doc/c/e/ceaee3a-959bdf7-cayman1.jpg"},
-                    new Photo{CarID = 1,PhotoURL = "http://lviv.porsche.ua/images/doc/0/8/08b81de-51a119f-10-2.jpg"},
-                    new Photo{CarID = 1,PhotoURL = "https://upload.wikimedia.org/wikipedia/commons/7/77/2013_Porsche_911_Carrera_4S_%28991%29_%288824948364%29.jpg"},
-                    new Photo{CarID = 2,PhotoURL = "http://mercedes-benz.autoua.net/media/catalog/2/5/p1586425-1421158104.jpg"},
-                    new Photo{CarID = 2,PhotoURL = "http://i.infocar.ua/i/12/5232/700x350.jpg"},
-                    new Photo{CarID = 2,PhotoURL = "http://amgroom.ru/upload/catalog_add/autoresize/780x0/88.jpg"},
+                    new Photo{PhotoURL = "http://lviv.porsche.ua/images/doc/c/e/ceaee3a-959bdf7-cayman1.jpg"},
+                    new Photo{PhotoURL = "http://lviv.porsche.ua/images/doc/0/8/08b81de-51a119f-10-2.jpg"},
+                    new Photo{PhotoURL = "https://upload.wikimedia.org/wikipedia/commons/7/77/2013_Porsche_911_Carrera_4S_%28991%29_%288824948364%29.jpg"},
+                    new Photo{PhotoURL = "http://mercedes-benz.autoua.net/media/catalog/2/5/p1586425-1421158104.jpg"},
+                    new Photo{PhotoURL = "http://i.infocar.ua/i/12/5232/700x350.jpg"},
+                    new Photo{PhotoURL = "http://amgroom.ru/upload/catalog_add/autoresize/780x0/88.jpg"},
 
                 };
 
                 foreach (Photo s in photos)
                 {
-                    _context.Photos.Add(s);
+                    _context.Entry(s);
+                    //_context.Photo.Add(s);
                 }
                 _context.SaveChanges();
             }
             return;   // DB has been seeded
         }
+        private static void SeedCarPhoto()
+        {
+            if (!_context.Photos.Any())
+            {
+                var carPhotos = new CarPhoto[]
+                {
+                    new CarPhoto {CarId = 1, PhotoId = 1},
+                    new CarPhoto {CarId = 1, PhotoId = 2},
+                    new CarPhoto {CarId = 1, PhotoId = 3},
+                    new CarPhoto {CarId = 2, PhotoId = 4},
+                    new CarPhoto {CarId = 2, PhotoId = 5},
+                    new CarPhoto {CarId = 2, PhotoId = 6}
+                };
+                foreach (CarPhoto s in carPhotos)
+                {
+                    _context.Entry(s);
+                    //_context.CarPhoto.Add(s);
+                }
+                _context.SaveChanges();
+            }
+        }
+
+
     }
 }

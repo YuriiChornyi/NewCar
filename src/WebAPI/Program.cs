@@ -19,7 +19,9 @@ namespace WebAPI
                 try
                 {
                     var context = services.GetRequiredService<DbContext>();
-                    NewCarDbInitialiser.Initialize(context);
+                    //context.Database.AutoTransactionsEnabled = true;
+                    
+                    //NewCarDbInitialiser.Initialize(context);
                 }
                 catch (Exception ex)
                 {
@@ -27,7 +29,7 @@ namespace WebAPI
                     logger.LogError(ex, "An error occurred while seeding the database.");
                 }
             }
-            
+
             host.Run();
         }
 
