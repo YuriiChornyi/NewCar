@@ -7,6 +7,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using System.Web.Http.Description;
 using DataService;
 using DALF;
@@ -14,6 +15,7 @@ using Service;
 
 namespace WebAPIv2.Controllers
 {
+    [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
     public class CarsController : ApiController
     {
         private CarDbContext _db;
@@ -39,15 +41,16 @@ namespace WebAPIv2.Controllers
 
         // GET: api/Cars/5
         [ResponseType(typeof(Car))]
-        public IHttpActionResult GetCar(int id)
+        public IHttpActionResult GetCar([FromUri]int id)
         {
-            Car car = _db.Cars.Find(id);
-            if (car == null)
+            var returnitem=_service.GetCarById(id);
+            if (returnitem == null)
             {
                 return NotFound();
             }
 
-            return Ok(car);
+
+            return Ok(returnitem);
         }
 
         // PUT: api/Cars/5
