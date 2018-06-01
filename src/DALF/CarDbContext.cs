@@ -7,7 +7,7 @@ namespace DALF
     public class CarDbContext : System.Data.Entity.DbContext
     {
         public CarDbContext()
-            : base("name=DefaultConnection")
+            : base("name=RemoteConnection")
         {
             this.Configuration.LazyLoadingEnabled = true;
             this.Configuration.ProxyCreationEnabled = true;

@@ -29,6 +29,17 @@ namespace DataService
 
             return returnlist;
         }
+
+        public CarDto GetCarById(int id)
+        {
+            Car car = _unitOfWork.Cars.Get(id);
+            if (car == null)
+            {
+                return null;
+            }
+
+            return CarToCarDto(car);
+        }
         private CarDto CarToCarDto(Car car)
         {
             var res = _unitOfWork.CarPhotos.GetAll().Where(x => x.CarId == car.CarId).Select(x => x.Photos);
@@ -37,7 +48,16 @@ namespace DataService
             {
                 photos.Add(photo.PhotoURL);
             }
-            return new CarDto(car.CarId, car.ManufacturerName, car.ModelName, car.CarSalon.Name, car.CarSalonId, car.Transmition.DriveWheels.Type, car.Price, photos, car.Color.ColorType.Type, car.Color.ColorCode, car.Body.Type, car.CarClass);
+
+            var gearBoxId=car.Transmition.GearBoxID;
+            var gearBoxType = _unitOfWork.GearBoxes.Get(gearBoxId).Type;
+            return new CarDto(car.CarId, car.ManufacturerName, car.ModelName, car.CarSalon.Name, car.CarSalonId, car.Transmition.DriveWheels.Type, car.Price, photos, car.Color.ColorType.Type, car.Color.ColorCode, car.Body.Type, car.CarClass,car.Engine.FuelType,car.Engine.Value, gearBoxType);
+        }
+
+        private Car CarDtoToCar(CarDto carDto)
+        {
+
+            return new Car();
         }
     }
 
