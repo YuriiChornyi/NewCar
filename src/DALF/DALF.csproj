@@ -47,9 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CarContextFactory.cs" />
     <Compile Include="CarDbContext.cs" />
-    <Compile Include="Class1.cs" />
     <Compile Include="Entities\Body.cs" />
     <Compile Include="Entities\Car.cs" />
     <Compile Include="Entities\CarPhoto.cs" />

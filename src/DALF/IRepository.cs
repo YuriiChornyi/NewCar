@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace DALF
+﻿namespace DALF
 {
+    using System.Collections.Generic;
     public interface IRepository<T> where T : class
     {
         IEnumerable<T> GetAll();

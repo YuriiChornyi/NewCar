@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace DALF
+﻿namespace DALF
 {
     using System.Data.Entity;
     using System.Data.Entity.ModelConfiguration.Conventions;

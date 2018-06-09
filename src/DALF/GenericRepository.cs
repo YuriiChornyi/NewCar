@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Text;
-
-namespace DALF
+﻿namespace DALF
 {
+    using System.Collections.Generic;
+    using System.Data.Entity;
+
     public class GenericRepository<T> : IRepository<T> where T : class
     {
         private readonly CarDbContext _carDb;

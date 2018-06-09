@@ -15,11 +15,11 @@ using Service;
 
 namespace WebAPIv2.Controllers
 {
-    [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class CarsController : ApiController
     {
-        private CarDbContext _db;
-        private CarsService _service;
+        private readonly CarDbContext _db;
+        private readonly CarsService _service;
         public CarsController(CarDbContext db)
         {
             _db = db;

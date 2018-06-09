@@ -60,9 +60,4 @@ namespace DataService
             return new Car();
         }
     }
-
-    public static class Convert
-    {
-
-    }
 }

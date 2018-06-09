@@ -9,6 +9,7 @@
         {
             _carDb = context;
         }
+
         private BodyRepository _bodyRepository;
         private CarRepository _carRepository;
         private CarSalonRepository _carSalonRepository;
