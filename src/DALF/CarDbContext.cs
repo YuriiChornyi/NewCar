@@ -19,7 +19,7 @@ namespace DALF
             this.Configuration.LazyLoadingEnabled = true;
             this.Configuration.ProxyCreationEnabled = true;
         }
-       
+
         public DbSet<Body> Bodies { get; set; }
         public DbSet<Car> Cars { get; set; }
         public DbSet<CarSalon> CarSalons { get; set; }
